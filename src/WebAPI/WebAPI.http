@@ -1,6 +1,10 @@
-@WebAPI_HostAddress = http://localhost:5207
+@WebAPI_HostAddress = https://localhost:7233
 
-GET {{WebAPI_HostAddress}}/weatherforecast/
-Accept: application/json
+### Calculate the total toll fee
+GET {{WebAPI_HostAddress}}/api/tax/calculate
+Content-Type: application/json
 
-###
+{
+    "VehicleType":"Car",
+    "PassesDates":["2013-05-13T06:15:00","2013-05-13T08:45:00"]
+}

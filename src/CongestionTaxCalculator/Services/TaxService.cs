@@ -5,6 +5,69 @@ namespace CongestionTaxCalculator.Services;
 
 public class TaxService
 {
+    /// <summary>
+    /// Calculate the total toll fee for one day
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <returns></returns>
+    public int CalculateTax(TaxCalculationDTO dto)
+    {
+        // TODO: if the year is not 2013 return -1
+        // TODO: if dates aren't for a single day return -1
+
+        if (IsTollFreeVehicle(dto.VehicleType))
+        {
+            return 0;
+        }
+
+        dto.PassesDates = dto.PassesDates.OrderBy(date => date).ToArray();
+
+        if (IsTollFreeDate(dto.PassesDates[0]))
+        {
+            return 0;
+        }
+
+        int totalFee = 0;
+        int currentMaxFee = 0;
+        DateTime intervalStart = dto.PassesDates[0];
+
+        foreach (DateTime date in dto.PassesDates)
+        {
+            int nextFee = GetTollFee(date.Hour, date.Minute);
+
+            // Calculate the time difference
+            TimeSpan span = date.Subtract(intervalStart);
+            double minutesDiff = span.TotalMinutes;
+
+            if (minutesDiff <= 60)
+            {
+                // Apply the single charge rule
+                if (nextFee > currentMaxFee)
+                {
+                    currentMaxFee = nextFee;
+                }
+            }
+            else
+            {
+                totalFee += currentMaxFee;
+                
+                intervalStart = date;
+                currentMaxFee = nextFee;
+            }
+        }
+
+        totalFee += currentMaxFee;
+
+        // Max tax per day
+        if (totalFee > 60)
+        {
+            return 60;
+        }
+
+        return totalFee;
+    }
+
+
     public int GetTollFee(int hour, int minute)
     {
         if (hour == 6 && minute >= 0 && minute <= 29) return 8;

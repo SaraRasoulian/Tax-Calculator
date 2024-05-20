@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2EEED07A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CongestionTaxCalculator", "src\CongestionTaxCalculator\CongestionTaxCalculator.csproj", "{8AB4813B-90C2-4387-91A8-B02AB8C9E2AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "tests\UnitTests\UnitTests.csproj", "{97E23B42-FD05-48D9-BB79-F5874CD900F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "tests\UnitTests\UnitTests.csproj", "{97E23B42-FD05-48D9-BB79-F5874CD900F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "src\WebAPI\WebAPI.csproj", "{A49B61D6-27FC-47D5-97BA-3F848B6CB4F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{97E23B42-FD05-48D9-BB79-F5874CD900F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E23B42-FD05-48D9-BB79-F5874CD900F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E23B42-FD05-48D9-BB79-F5874CD900F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A49B61D6-27FC-47D5-97BA-3F848B6CB4F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A49B61D6-27FC-47D5-97BA-3F848B6CB4F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A49B61D6-27FC-47D5-97BA-3F848B6CB4F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A49B61D6-27FC-47D5-97BA-3F848B6CB4F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8AB4813B-90C2-4387-91A8-B02AB8C9E2AD} = {4A13B6A2-64BF-47B0-84C7-B52420732FB1}
 		{97E23B42-FD05-48D9-BB79-F5874CD900F8} = {2EEED07A-1E2A-4417-B02B-989E8117E58C}
+		{A49B61D6-27FC-47D5-97BA-3F848B6CB4F4} = {4A13B6A2-64BF-47B0-84C7-B52420732FB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15F0F255-2DF1-4D78-ADF4-FAB864A65192}

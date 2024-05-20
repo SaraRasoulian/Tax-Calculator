@@ -1,10 +1,13 @@
 # Congestion Tax Calculator
 The application calculates congestion tax fees for vehicles within the Gothenburg area.
 
-Solution implemented using ASP.NET Core Web API (.NET 8) with Visual Studio IDE. The endpoints can be tested using postman or swagger.
 
-- The application calculates the tax for the Gothenburg area only
-- All tax rules are hardcoded
+Solution implemented using ASP.NET Core Web API (.NET 8) with Visual Studio IDE.
+
+The endpoints can be tested using postman or swagger.
+
+- The application calculates the tax for the Gothenburg area only.
+- All tax rules are hardcoded.
 - The application is limited to the year 2013.
 
 
@@ -13,8 +16,10 @@ Solution implemented using ASP.NET Core Web API (.NET 8) with Visual Studio IDE.
 
 following endpoint gets `vehicle type` and `passess dates` as inputs and returns `tax amount`
 
-#### Endpoint:
-`Get  https://localhost:7233/api/tax/calculate`
+##### Endpoint:
+```
+Get  https://localhost:7233/api/tax/calculate
+```
 
 ##### Input from body:
 ```

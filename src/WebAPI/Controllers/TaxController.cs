@@ -1,5 +1,5 @@
-﻿using CongestionTaxCalculator.DTOs;
-using CongestionTaxCalculator.Services;
+﻿using Application.Dtos;
+using Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -8,16 +8,17 @@ namespace WebAPI.Controllers
     [ApiController]
     public class TaxController : ControllerBase
     {
-        private readonly TaxService _taxService;
-        public TaxController()
+        private readonly ITaxService _taxService;
+        public TaxController(ITaxService taxService)
         {
-            _taxService = new TaxService();
+            _taxService = taxService;
         }
 
         [HttpGet("calculate")]
-        public ActionResult CalculateTax([FromBody] TaxCalculationDTO taxCalculationDTO)
-        {
-            var result = _taxService.CalculateTax(taxCalculationDTO);
+        public async Task<ActionResult> CalculateTax([FromBody] TaxCalculationDto taxCalculationDto)
+        {          
+            var result = await _taxService.CalculateTax(taxCalculationDto);
+            if(result == -1) return BadRequest();
             return Ok(result);
         }
     }

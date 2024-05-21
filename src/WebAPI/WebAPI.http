@@ -1,10 +1,11 @@
 @WebAPI_HostAddress = https://localhost:7233
 
-### Calculate the total toll fee
+### Calculate the tax
 GET {{WebAPI_HostAddress}}/api/tax/calculate
 Content-Type: application/json
 
 {
-    "VehicleType":"Car",
-    "PassesDates":["2013-05-13T06:15:00","2013-05-13T08:45:00"]
+    "CityName": "Gothenburg",
+    "VehicleType": "Car",
+    "PassesDates": ["2013-05-13T06:15:00", "2013-05-13T08:45:00"]
 }

@@ -35,6 +35,6 @@ Content-Type: application/json
   - Clean Architecture
   - Clean Code
   - Repository Service Pattern
-  - PostgreSQL
+  - PostgreSQL -v15
   - Database built via Entity framework migrations (code-first approach)
   - Visual Studio 2022 -v17

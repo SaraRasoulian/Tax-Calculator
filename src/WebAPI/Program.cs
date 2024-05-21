@@ -1,5 +1,8 @@
+using Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddControllers();

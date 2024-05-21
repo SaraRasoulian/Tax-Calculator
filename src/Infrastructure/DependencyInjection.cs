@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
+﻿using Domain.Interfaces;
 using Infrastructure.DbContexts;
-using Application.Services.Interfaces;
-using Infrastructure.Services;
+using Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -17,7 +17,10 @@ public static class DependencyInjection
 
         AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-        services.AddScoped<ITaxService, TaxService>();
+        services.AddScoped<ICityTaxRuleRepository, CityTaxRuleRepository>();
+        services.AddScoped<IHolidayRepository, HolidayRepository>();
+        services.AddScoped<ITaxAmountRepository, TaxAmountRepository>();
+        services.AddScoped<ITaxExemptVehicleRepository, TaxExemptVehicleRepository>();
 
         return services;
     }

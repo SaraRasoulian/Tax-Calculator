@@ -38,3 +38,7 @@ Content-Type: application/json
   - PostgreSQL -v15
   - Database built via Entity framework migrations (code-first approach)
   - Visual Studio 2022 -v17
+
+### Database design
+
+![Database Design](https://github.com/SaraRasoulian/Congestion-Tax-Calculator/assets/51083712/5000d8a4-56b5-4682-82a3-a7851215c6a0)

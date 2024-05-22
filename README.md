@@ -11,7 +11,7 @@ following endpoint gets `city name`, `vehicle type` and `passess dates` as input
 
 ##### Endpoint:
 ```
-Get    http://localhost:5000/api/tax/calculate
+Post    http://localhost:5000/api/tax/calculate
 ```
 
 ##### Input from body:

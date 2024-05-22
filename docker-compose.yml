@@ -1,0 +1,57 @@
+services:
+
+  # ASP.NET Core Web API Application
+  tax_api:
+    container_name: api_container
+    ports:
+      - "5000:5000"
+    depends_on:
+      - tax_postgres_db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=postgres_db_container;Port=5432;Database=TaxDB;Username=postgres;Password=mysecretpassword;
+      - ASPNETCORE_URLS=http://+:5000
+    networks:
+      - tax_network
+
+  # PostgreSQL Database 
+  tax_postgres_db:
+    container_name: postgres_db_container
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      PGDATA: /data/postgres
+    volumes:
+       - tax_postgres_data:/data/postgres
+    ports:
+      - "5433:5432"
+    networks:
+      - tax_network
+    restart: unless-stopped
+
+  # PGAdmin User Interface
+  tax_pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: mysecretpassword
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - tax_pgadmin_data:/var/lib/pgadmin
+    ports:
+      - "8000:80"
+    networks:
+      - tax_network
+    restart: unless-stopped
+    
+networks:
+  tax_network:
+    driver: bridge
+
+volumes:
+  tax_postgres_data:
+  tax_pgadmin_data:

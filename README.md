@@ -44,10 +44,20 @@ Content-Type: application/json
 
 ### Database design
 
+The image shows the database schema for this application:
 
+<details>
+
+<summary>Database design</summary>
 
 ![Database Design](https://github.com/SaraRasoulian/Congestion-Tax-Calculator/assets/51083712/5000d8a4-56b5-4682-82a3-a7851215c6a0)
 
+</details>
+
+The CityTaxRules table has a one-to-many relationship with the Holidays, TaxAmounts, and TaxExemptVehicles tables.
+
+
+Database created using Entity Framework Core migrations (code-first approach).
 
 
 

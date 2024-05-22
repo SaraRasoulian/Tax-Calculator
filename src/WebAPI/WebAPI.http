@@ -1,7 +1,7 @@
 @WebAPI_HostAddress = https://localhost:7233
 
 ### Calculate the tax
-GET {{WebAPI_HostAddress}}/api/tax/calculate
+POST {{WebAPI_HostAddress}}/api/tax/calculate
 Content-Type: application/json
 
 {
